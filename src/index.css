@@ -10,7 +10,8 @@ html {
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  font-family: "";
+  /* background-color: #fbe8a6; */
+  overflow-x: hidden;
 }
