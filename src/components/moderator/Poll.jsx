@@ -13,13 +13,28 @@ import {
   TextField,
   Typography,
   IconButton,
+  InputAdornment,
+  Button,
+  Box,
 } from "@mui/material";
 import React, { useState } from "react";
 import DialogBox from "./DialogBox";
+import ClearIcon from "@mui/icons-material/Clear";
+import AddIcon from "@mui/icons-material/Add";
 
 const Poll = () => {
   const [open, setOpen] = useState(false);
   const [poll, setPoll] = useState({ id: "", title: "", options: [] });
+  const [selectValue, setSelectValue] = useState({
+    visibility: "public",
+    tag: "tech",
+  });
+  const [optionCount, setOptionCount] = useState(2);
+
+  const handleSelect = (event) => {
+    const { name, value } = event.target;
+    setSelectValue((selectValue) => ({ ...selectValue, [name]: value }));
+  };
   const polls = [
     {
       question: "What is your favorite color?",
@@ -98,7 +113,7 @@ const Poll = () => {
         style={{
           margin: "auto",
           width: "min(90%, 800px)",
-          background: "#f9f9f9",
+          background: "#ede7f6",
           padding: "16px",
           borderRadius: "8px",
         }}
@@ -126,8 +141,10 @@ const Poll = () => {
             <Select
               labelId="label"
               id="select"
-              value="public"
+              name="visibility"
+              value={selectValue.visibility}
               style={{ display: "block" }}
+              onChange={handleSelect}
             >
               <MenuItem value="private">Private</MenuItem>
               <MenuItem value="public">Public</MenuItem>
@@ -138,8 +155,10 @@ const Poll = () => {
             <Select
               labelId="label"
               id="select"
-              value="tech"
+              name="tag"
+              value={selectValue.tag}
               style={{ display: "block" }}
+              onChange={handleSelect}
             >
               <MenuItem value="sports">Sports</MenuItem>
               <MenuItem value="design">Design</MenuItem>
@@ -148,6 +167,52 @@ const Poll = () => {
             </Select>
           </div>
         </Stack>
+        <br />
+        {Array(optionCount)
+          .fill()
+          .map((_, index) => (
+            <TextField
+              key={index}
+              label={`Option ${index + 1}`}
+              variant="standard"
+              fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    {optionCount > 2 && (
+                      <IconButton
+                        edge="end"
+                        onClick={() => {
+                          setOptionCount((prev) => prev - 1);
+                        }}
+                      >
+                        <ClearIcon />
+                      </IconButton>
+                    )}
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ mt: "8px" }}
+            />
+          ))}
+        <br />
+        <br />
+        <Box align="end">
+          <Button
+            variant="outline"
+            onClick={() => {
+              setOptionCount((prev) => prev + 1);
+            }}
+          >
+            <AddIcon /> Add Option
+          </Button>
+        </Box>
+        <br />
+        <Box align="center">
+          <Button variant="contained" style={{ width: "min(50vw, 200px)" }}>
+            Create Poll
+          </Button>
+        </Box>
       </div>
 
       <br />
@@ -157,7 +222,7 @@ const Poll = () => {
         style={{
           margin: "auto",
           width: "min(90%, 800px)",
-          background: "#f9f9f9",
+          background: "#ede7f6",
           padding: "16px",
           borderRadius: "8px",
         }}

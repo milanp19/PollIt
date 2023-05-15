@@ -38,20 +38,22 @@ const DialogBox = ({ open, setOpen, poll }) => {
             value={value}
             onChange={handleChange}
             variant="fullWidth"
+            sx={{ bgcolor: "ede7f6" }}
           >
-            <Tab label="Vote Ratio" sx={{ bgcolor: "beige" }} />
-            <Tab label="Attended" sx={{ bgcolor: "beige" }} />
+            <Tab label="Vote Ratio" sx={{ bgcolor: "#ede7f6" }} />
+            <Tab label="Attended" sx={{ bgcolor: "#ede7f6" }} />
           </Tabs>
         </Box>
-        <DialogTitle>{value === 0 ? poll.question : ""}</DialogTitle>
-        <DialogContent>
-          {value == 0
-            ? poll.options.map((option, index) => (
+        <Box bgcolor="#f9f9f9">
+          <DialogTitle>{value === 0 ? poll.question : ""}</DialogTitle>
+          <DialogContent>
+            {value == 0 ? (
+              poll.options.map((option, index) => (
                 <div
                   key={index}
                   style={{
                     padding: "0.5rem",
-                    backgroundColor: "#f3f3f3",
+                    backgroundColor: "#ede7f6",
                     marginBlock: "0.3rem",
                     borderRadius: "8px",
                     display: "flex",
@@ -62,8 +64,11 @@ const DialogBox = ({ open, setOpen, poll }) => {
                   <Typography variant="caption">0 votes</Typography>
                 </div>
               ))
-            : "No one attended this poll"}
-        </DialogContent>
+            ) : (
+              <p style={{ textAlign: "center" }}>No one attended this poll</p>
+            )}
+          </DialogContent>
+        </Box>
       </Dialog>
     </>
   );
