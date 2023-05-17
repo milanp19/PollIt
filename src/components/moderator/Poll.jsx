@@ -113,7 +113,7 @@ const Poll = () => {
         style={{
           margin: "auto",
           width: "min(90%, 800px)",
-          background: "#ede7f6",
+          background: "var(--secondary)",
           padding: "16px",
           borderRadius: "8px",
         }}
@@ -222,7 +222,7 @@ const Poll = () => {
         style={{
           margin: "auto",
           width: "min(90%, 800px)",
-          background: "#ede7f6",
+          background: "var(--secondary)",
           padding: "16px",
           borderRadius: "8px",
         }}

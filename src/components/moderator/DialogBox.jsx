@@ -2,11 +2,6 @@ import {
   DialogTitle,
   DialogContent,
   Dialog,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemAvatar,
-  Avatar,
   Box,
   Tabs,
   Tab,
@@ -22,10 +17,6 @@ const DialogBox = ({ open, setOpen, poll }) => {
     setValue(newValue);
   };
 
-  // const handleChangeIndex = (index) => {
-  //   setValue(index);
-  // };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -38,22 +29,21 @@ const DialogBox = ({ open, setOpen, poll }) => {
             value={value}
             onChange={handleChange}
             variant="fullWidth"
-            sx={{ bgcolor: "ede7f6" }}
           >
-            <Tab label="Vote Ratio" sx={{ bgcolor: "#ede7f6" }} />
-            <Tab label="Attended" sx={{ bgcolor: "#ede7f6" }} />
+            <Tab label="Vote Ratio" sx={{ bgcolor: "var(--secondary)" }} />
+            <Tab label="Attended" sx={{ bgcolor: "var(--secondary)" }} />
           </Tabs>
         </Box>
-        <Box bgcolor="#f9f9f9">
+        <Box bgcolor="var(--body)">
           <DialogTitle>{value === 0 ? poll.question : ""}</DialogTitle>
           <DialogContent>
-            {value == 0 ? (
+            {value === 0 ? (
               poll.options.map((option, index) => (
                 <div
                   key={index}
                   style={{
                     padding: "0.5rem",
-                    backgroundColor: "#ede7f6",
+                    backgroundColor: "var(--secondary)",
                     marginBlock: "0.3rem",
                     borderRadius: "8px",
                     display: "flex",
@@ -61,7 +51,9 @@ const DialogBox = ({ open, setOpen, poll }) => {
                   }}
                 >
                   {option}
-                  <Typography variant="caption">0 votes</Typography>
+                  <Typography variant="caption" align="center">
+                    0 votes
+                  </Typography>
                 </div>
               ))
             ) : (
