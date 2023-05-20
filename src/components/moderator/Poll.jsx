@@ -197,7 +197,7 @@ const Poll = () => {
           ))}
         <br />
         <br />
-        <Box align="end">
+        <Box textAlign="end">
           <Button
             variant="outline"
             onClick={() => {

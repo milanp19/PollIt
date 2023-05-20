@@ -1,43 +1,50 @@
 import { useState } from "react";
 import "./App.css";
-
 import * as React from "react";
-
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import Poll from "./components/moderator/Poll";
-
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import blue from "@mui/material/colors/blue";
 import Navbar from "./components/Navbar";
+import ModeratorPage from "./pages/ModeratorPage";
+import HomePage from "./pages/HomePage";
+import { Route, Routes } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: "#673ab7",
-      contrastText: "#fff",
+    },
+    secondary: {
+      main: "#11cb5f",
     },
   },
 });
 
-function App() {
-  const [role, setRole] = useState("moderator");
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#c5d7d6",
+//     },
+//     secondary: {
+//       main: "#f3faf9",
+//     },
+//   },
+// });
 
+function App() {
   return (
     <>
-      {role === "moderator" && (
+      {
         <>
           <ThemeProvider theme={theme}>
             <Navbar />
-            <Poll />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/moderator" element={<ModeratorPage />} />
+            </Routes>
           </ThemeProvider>
         </>
-      )}
+      }
     </>
   );
 }

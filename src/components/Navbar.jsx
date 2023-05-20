@@ -39,7 +39,7 @@ const Navbar = () => {
             noWrap
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            Poll It
+            Poll'IT
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box
