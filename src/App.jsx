@@ -32,14 +32,24 @@ const theme = createTheme({
 // });
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <>
       {
         <>
           <ThemeProvider theme={theme}>
-            <Navbar />
+            <Navbar loggedIn={loggedIn} />
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route
+                path="/"
+                element={
+                  loggedIn ? (
+                    <ModeratorPage />
+                  ) : (
+                    <HomePage setLoggedIn={setLoggedIn} />
+                  )
+                }
+              />
               <Route path="/moderator" element={<ModeratorPage />} />
             </Routes>
           </ThemeProvider>

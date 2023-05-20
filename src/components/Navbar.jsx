@@ -15,8 +15,9 @@ import Divider from "@mui/material/Divider";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import { Logout } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
-const Navbar = () => {
+const Navbar = ({ loggedIn }) => {
   const [file, setFile] = useState({
     image: "",
   });
@@ -45,43 +46,53 @@ const Navbar = () => {
           <Box
             sx={{ display: { xs: "none", sm: "flex", alignItems: "center" } }}
           >
-            <Typography variant="button">Profile</Typography>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="upload picture"
-              component="label"
-              aria-haspopup="true"
-              color="primary"
-            >
-              <input
-                hidden
-                type="file"
-                accept="image/*"
-                onChange={(event) => {
-                  event.preventDefault();
-                  const reader = new FileReader();
-                  const file = event.target.files[0];
-                  reader.onloadend = () => {
-                    setFile({
-                      image: reader.result,
-                    });
-                  };
-                  reader.readAsDataURL(file);
-                }}
-              />
+            {loggedIn ? (
+              <>
+                <Typography variant="button">Profile</Typography>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="upload picture"
+                  component="label"
+                  aria-haspopup="true"
+                  color="primary"
+                >
+                  <input
+                    hidden
+                    type="file"
+                    accept="image/*"
+                    onChange={(event) => {
+                      event.preventDefault();
+                      const reader = new FileReader();
+                      const file = event.target.files[0];
+                      reader.onloadend = () => {
+                        setFile({
+                          image: reader.result,
+                        });
+                      };
+                      reader.readAsDataURL(file);
+                    }}
+                  />
 
-              <img
-                src={
-                  file.image ||
-                  "https://free.clipartof.com/855-Free-Clipart-Of-A-Male-Avatar.jpg"
-                }
-                alt=""
-                width="30px"
-                height="30px"
-                style={{ borderRadius: "50%" }}
-              />
-            </IconButton>
+                  <img
+                    src={
+                      file.image ||
+                      "https://free.clipartof.com/855-Free-Clipart-Of-A-Male-Avatar.jpg"
+                    }
+                    alt=""
+                    width="30px"
+                    height="30px"
+                    style={{ borderRadius: "50%" }}
+                  />
+                </IconButton>
+              </>
+            ) : (
+              <>
+                <Button variant="contained">Sign In</Button>
+                &nbsp; &nbsp;
+                <Button variant="contained">Sign Up</Button>
+              </>
+            )}
           </Box>
           <Box sx={{ display: { xs: "flex", sm: "none" } }}>
             <Tooltip title="More Settings">

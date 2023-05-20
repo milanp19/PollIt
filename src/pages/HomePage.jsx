@@ -2,16 +2,12 @@ import React from "react";
 import Login from "../components/home/Login";
 import Left from "../components/home/Left";
 import SignUp from "../components/home/SignUp";
-import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion";
 
-const HomePage = () => {
+const HomePage = ({ setLoggedIn }) => {
   return (
     <div>
-      <AnimatePresence>
-        <Login />
-        <Left />
-      </AnimatePresence>
+      <Login setLoggedIn={setLoggedIn} />
+      <Left />
     </div>
   );
 };

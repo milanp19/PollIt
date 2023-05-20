@@ -10,7 +10,7 @@ const Left = () => {
   };
   return (
     <motion.div
-      style={{ paddingTop: "140px", textAlign: "center" }}
+      style={{ paddingTop: "250px", textAlign: "center" }}
       className="right"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={leftAnimation}
@@ -29,7 +29,7 @@ const Left = () => {
       <Divider />
       <br />
       <br />
-      <Stack direction="row" gap={4} alignItems="center" paddingLeft={4}>
+      <Stack direction="row" gap={4} alignItems="center" paddingLeft={10}>
         <Typography
           style={{
             fontFamily: "Roboto",
