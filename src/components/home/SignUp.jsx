@@ -12,7 +12,7 @@ const SignUp = ({ setLogin }) => {
         initial={{ opacity: 0, display: "none" }}
         animate={{ opacity: 1, display: "block" }}
         exit={{ opacity: 0, display: "none" }}
-        transition={{ delay: 0.1 }}
+        transition={{ duration: 0.5 }}
       >
         <div>
           <Typography style={{ fontSize: "30px" }}>
@@ -65,7 +65,6 @@ const SignUp = ({ setLogin }) => {
           <br />
           <Button
             variant="contained"
-            sx={{ color: "#e3e6d8" }}
             style={{
               boxShadow: "4px 3px rgba(19, 18, 18, 0.149)",
               borderRadius: "10px",

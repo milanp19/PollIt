@@ -35,6 +35,7 @@ const Poll = () => {
     const { name, value } = event.target;
     setSelectValue((selectValue) => ({ ...selectValue, [name]: value }));
   };
+
   const polls = [
     {
       question: "What is your favorite color?",
@@ -119,8 +120,8 @@ const Poll = () => {
         }}
       >
         <Typography variant="h4">Make a poll</Typography>
+        <br />
         <label>
-          <br />
           <span>Poll title</span>
           <TextField
             id="outlined-basic"

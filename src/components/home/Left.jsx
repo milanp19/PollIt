@@ -18,9 +18,9 @@ const Left = () => {
     >
       <Typography
         style={{
-          fontFamily: "Roboto",
           fontSize: "60px",
           textShadow: "4px 3px rgba(19, 18, 18, 0.149)",
+          color: "black",
         }}
       >
         Welcome to Poll'IT
@@ -29,62 +29,9 @@ const Left = () => {
       <Divider />
       <br />
       <br />
-      <Stack direction="row" gap={4} alignItems="center" paddingLeft={10}>
-        <Typography
-          style={{
-            fontFamily: "Roboto",
-            fontSize: "20px",
-            textShadow: "2px 2px rgba(19, 18, 18, 0.149)",
-          }}
-        >
-          Log In as:
-        </Typography>
-        <br />
-        <ButtonGroup orientation="vertical" style={{ gap: "8px" }}>
-          <Button
-            variant="contained"
-            sx={{ color: "#e3e6d8" }}
-            style={{
-              color: "#e3e6d8",
-              fontFamily: "Roboto",
-              boxShadow: "4px 3px rgba(19, 18, 18, 0.149)",
-              borderRadius: "4px",
-              minWidth: "200px",
-            }}
-          >
-            Admin
-          </Button>
-          <br />
-          <br />
-          <Button
-            variant="contained"
-            sx={{ color: "#e3e6d8" }}
-            style={{
-              color: "#e3e6d8",
-              fontFamily: "Roboto",
-              boxShadow: "4px 3px rgba(19, 18, 18, 0.149)",
-              borderRadius: "4px",
-              minWidth: "200px",
-            }}
-          >
-            Moderator
-          </Button>
-          <br />
-          <br />
-          <Button
-            variant="contained"
-            sx={{ color: "#e3e6d8" }}
-            style={{
-              color: "#e3e6d8",
-              boxShadow: "4px 3px rgba(19, 18, 18, 0.149)",
-              borderRadius: "4px",
-              minWidth: "200px",
-            }}
-          >
-            User
-          </Button>
-        </ButtonGroup>
-      </Stack>
+      <Typography variant="caption" style={{ fontSize: "20px" }}>
+        Your Voice, Your Vote, Your Impact!
+      </Typography>
     </motion.div>
   );
 };

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+
+import CreateAdmin from "../components/admin/CreateAdmin";
+import CustomTable from "../components/admin/CustomTable";
 
 const AdminPage = () => {
-  return <div>AdminPage</div>;
+  return (
+    <>
+      <CustomTable />
+    </>
+  );
 };
 
 export default AdminPage;

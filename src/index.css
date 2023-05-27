@@ -7,7 +7,7 @@
 
 :root {
   --primary: #673ab7;
-  --secondary: #ede7f6;
+  --secondary: #ffecdb;
   --body: #f9f9f9;
 }
 
@@ -34,8 +34,8 @@ body {
   right: 100px;
   top: 100px;
   bottom: 100px;
-  border-top-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 16px;
   background: var(--secondary);
   box-shadow: 10px 10px rgba(19, 18, 18, 0.149);
   /* background: #097aca */
@@ -46,13 +46,10 @@ body {
   /* text-align: justify; */
   position: absolute;
   left: 150px;
+ 
 }
 
 
-.login {
-  position: absolute;
-  z-index: 999;
-}
 
 .create{
   position: absolute ;
@@ -61,6 +58,6 @@ body {
   top: 100px;
   bottom: 100px;
   border-radius: 30px;
-  background: #e3e6d8;
+  background: var(--secondary);
   box-shadow: 10px 10px rgba(19, 18, 18, 0.149);
 }

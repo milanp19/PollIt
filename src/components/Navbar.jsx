@@ -48,7 +48,6 @@ const Navbar = ({ loggedIn }) => {
           >
             {loggedIn ? (
               <>
-                <Typography variant="button">Profile</Typography>
                 <IconButton
                   size="large"
                   edge="end"
