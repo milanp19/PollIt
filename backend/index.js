@@ -1,9 +1,10 @@
 //initial setup
 const express = require("express");
+require("dotenv").config();
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
 
 //middleware
 app.use(bodyParser.json());
@@ -11,7 +12,7 @@ app.use(cors());
 const polls = require("./models/polls");
 const users = require("./models/users");
 
-mongoose.connect("mongodb+srv://gouthamk490:reactnodexpress@cluster0.ogepcou.mongodb.net/GKdb?retryWrites=true&w=majority");
+mongoose.connect(process.env.connectionUrl);
  const connection = mongoose.connection;
  connection.once('open',()=>{
     console.log('Mongodb connection has been established successfully...');
